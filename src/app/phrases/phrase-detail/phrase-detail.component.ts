@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {PhraseService} from '../shared/phrase.service';
-import {Phrase} from '../shared/phrase.class';
+import {PhraseService} from '../../shared/phrase.service';
+import {Phrase} from '../../shared/phrase.class';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
@@ -16,7 +16,7 @@ export class PhraseDetailComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.activatedRoute.params.forEach((params: Params) => {
+    this.activatedRoute.params.subscribe((params: Params) => {
       this.svc
         .getPhrase(+params.id)
         .then(res => this.phrase = res);
