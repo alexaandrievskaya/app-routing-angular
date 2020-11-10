@@ -44,6 +44,12 @@ nav a {
     transition: 0.5s;
     border-radius: 7px;
 
+    &.selected {
+      padding-left: 10px;
+      padding-right: 10px;
+      background-color: lightblue;
+    }
+
     &:hover {
       padding-left: 10px;
       padding-right: 10px;

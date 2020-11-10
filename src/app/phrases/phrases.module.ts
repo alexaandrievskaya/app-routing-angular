@@ -14,3 +14,4 @@ import {PhraseDetailComponent} from './phrase-detail/phrase-detail.component';
   ]
 })
 export class PhrasesModule { }
+
