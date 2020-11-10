@@ -16,8 +16,7 @@ export class PhrasesListComponent implements OnInit {
   constructor(private svc: PhraseService, private router: Router, private activatedRout: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activatedRout.params.subscribe((params: Params) => {
-      this.selectedID = +params.id;
+    this.activatedRout.params.subscribe(() => {
 
       this.svc
         .getAll()
@@ -30,7 +29,9 @@ export class PhrasesListComponent implements OnInit {
   }
 
   onSelect(selected: Phrase): void {
-    this.router.navigate(['phrase', selected.id]);
+    this.selectedID = selected.id;
+    this.router.navigate(['phrases', selected.id]);
   }
 
 }
+
