@@ -30,7 +30,7 @@ export class PhrasesListComponent implements OnInit {
   }
 
   onSelect(selected: Phrase): void {
-    this.router.navigate(['phrase', selected.id]);
+    this.router.navigate([selected.id], {relativeTo: this.activatedRout});
   }
 
 }
