@@ -1,0 +1,17 @@
+<h3>Login to admin panel</h3>
+
+<p>{{message}}</p>
+
+<div>
+  <div style="margin-bottom: 10px;">
+    <label for="login">Login</label>
+    <input id="login" type="text" [(ngModel)]="userLogin">
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input id="password" type="text" [(ngModel)]="userPassword">
+  </div>
+  <div>
+    <button (click)="login()">Login</button>
+  </div>
+</div>
