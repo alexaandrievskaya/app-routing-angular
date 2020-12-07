@@ -1,10 +1,22 @@
 <div *ngIf="phrase">
   <h3>Selected phrase</h3>
 
-  <div>Value: {{phrase.value}}</div>
-  <div>Language: {{phrase.language}}</div>
+    <div *ngIf="auth.isLoggedIn; then thenBlock else elseBlock"></div>
 
   <div>
     <button (click)="goToPhrasesList()">Go Back</button>
+    <button *ngIf="isChanged()" (click)="save()">Save</button>
   </div>
 </div>
+
+<ng-template #thenBlock>
+<h3>LOG IN</h3>
+  <div><label>Value: <input type="text" [(ngModel)]="editValue"></label></div>
+  <div><label>Language: <input type="text" [(ngModel)]="editLanguage"></label></div>
+</ng-template>
+
+<ng-template #elseBlock>
+  <h3>LOG OUT</h3>
+  <div>Value: {{editValue}}</div>
+  <div>Language: {{editLanguage}}</div>
+</ng-template>
