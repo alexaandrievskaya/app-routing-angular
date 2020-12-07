@@ -52,4 +52,15 @@ export class PhraseDetailComponent implements OnInit {
     this.phrase.language = this.editLanguage;
   }
 
+  canDeactivate(): Promise<boolean> | boolean {
+    if (!this.phrase) {
+      return true;
+    }else if (!this.isChanged()) {
+      return true;
+    }
+
+    return confirm('You not saved the changes. \nAll changes will be lost.\nGo without saving anyway?');
+
+  }
+
 }
