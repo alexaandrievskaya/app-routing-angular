@@ -1,4 +1,4 @@
-<div *ngIf="phrase">
+<div> <!--*ngIf="phrase" можем убрать так как добавили resolver сформировали адрес и получили информацию - оптимизация-->
   <h3>Selected phrase</h3>
 
     <div *ngIf="auth.isLoggedIn; then thenBlock else elseBlock"></div>

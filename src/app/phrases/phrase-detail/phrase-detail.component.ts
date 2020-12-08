@@ -23,16 +23,19 @@ export class PhraseDetailComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.activatedRoute.params.subscribe((params: Params) => {
-      this.svc
-        .getPhrase(+params.id)
-        .then(res => {
-          this.phrase = res;
-          if (this.phrase) {
-            this.editValue = this.phrase.value;
-            this.editLanguage = this.phrase.language;
-          }
-        });
+    this.activatedRoute.data.subscribe((data: {phrase: Phrase}) => {
+      this.phrase = data.phrase;
+      this.editValue = this.phrase.value;
+      this.editLanguage = this.phrase.language;
+      // this.svc
+      //  .getPhrase(+params.id)
+      //  .then(res => {
+      //    this.phrase = res;
+      //    if (this.phrase) {
+      //      this.editValue = this.phrase.value;
+      //      this.editLanguage = this.phrase.language;
+      //    }
+      //  });
     });
 
   }
